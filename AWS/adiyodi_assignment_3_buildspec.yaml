@@ -2,9 +2,9 @@ version: 0.2
 
 env:
   variables:
-     AWS_DEFAULT_REGION: ""
-     IMAGE_REPO_NAME: ""
-     AWS_ACCOUNT_ID: ""
+     AWS_DEFAULT_REGION: "us-central1"
+     IMAGE_REPO_NAME: "adiyodi_assignment3_ecr"
+     AWS_ACCOUNT_ID: "211125509771"
 
 phases:
   #install:
