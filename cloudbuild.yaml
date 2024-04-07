@@ -8,7 +8,7 @@ steps:
     args: ['push', 'gcr.io/devops-lab-419615/adiyodi-assignment-3:$COMMIT_SHA']
 
 # Deploy the Docker container to Google Cloud Run
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'sh'
     args: 
       - '-c'
