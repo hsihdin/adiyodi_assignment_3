@@ -26,3 +26,4 @@ images:
   - 'us-east1-docker.pkg.dev/devops-lab-419615/adiyodi-assignment-3ssignment-3:$COMMIT_SHA'
 options:
   defaultLogsBucketBehavior: 'REGIONAL_USER_OWNED_BUCKET'
+  
