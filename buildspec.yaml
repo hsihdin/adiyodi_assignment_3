@@ -13,8 +13,9 @@ phases:
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
       - echo Logging in to Amazon ECR Public...
-      - AWS_PASSWORD=$(aws ecr-public get-login-password --region $AWS_DEFAULT_REGION --registry-ids public)
+      - AWS_PASSWORD=$(aws ecr-public get-login-password --region $AWS_DEFAULT_REGION)
       - echo $AWS_PASSWORD | docker login --username AWS --password-stdin $PUBLIC_ECR_REPO_URL
+
   build:
     commands:
       - echo Build started on `date`
