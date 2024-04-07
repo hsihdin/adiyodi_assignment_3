@@ -11,7 +11,7 @@ def after_request(response):
 
 @app.route('/')
 def hello_world():
-    return 'Hello From Adiyodi ECS Container! deployed by CICD pipeline'
+    return 'Hello From Adiyodi ECS Container! deployed by CICD pipeline!'
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
