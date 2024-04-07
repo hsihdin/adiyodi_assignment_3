@@ -1,0 +1,28 @@
+#Build the container Image
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-east1-docker.pkg.dev/adiyodi-assignment3/adiyodi-assignment-3:$COMMIT_SHA', '.']
+
+#Push the container Image
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-east1-docker.pkg.dev/adiyodi-assignment3/adiyodi-assignment-3:$COMMIT_SHA']
+
+  # Deploy the Docker container to Google Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'sh'
+    args: 
+      - '-c'
+      - |
+        gcloud run deploy nodejs-app \
+          --image=us-east1-docker.pkg.dev/adiyodi-assignment3/adiyodi-assignment-3:$COMMIT_SHA \
+          --platform=managed \
+          --region=us-east-1 \
+          --port=3000 \
+          --allow-unauthenticated
+ 
+ 
+images:
+  - 'us-east1-docker.pkg.dev/adiyodi-assignment3/adiyodi-assignment-3:$COMMIT_SHA'
+options:
+  defaultLogsBucketBehavior: 'REGIONAL_USER_OWNED_BUCKET'
