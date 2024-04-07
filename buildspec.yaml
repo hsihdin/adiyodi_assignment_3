@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
      AWS_DEFAULT_REGION: "us-east-2"
-     IMAGE_REPO_NAME: "adiyodi_assignment3_ecr"
+     IMAGE_REPO_NAME: "adiyodi_assignment3_ecr_public"
      AWS_ACCOUNT_ID: "211125509771"
 
 phases:
