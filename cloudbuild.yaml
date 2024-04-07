@@ -16,7 +16,7 @@ steps:
         gcloud run deploy python-app \
           --image=gcr.io/devops-lab-419615/adiyodi-assignment-3:$COMMIT_SHA \
           --platform=managed \
-          --region=us-east-1 \
+          --region=us-central1 \
           --port=3000 \
           --allow-unauthenticated
 
