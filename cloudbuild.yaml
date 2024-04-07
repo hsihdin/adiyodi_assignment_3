@@ -1,14 +1,14 @@
 # Build the container Image
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'docker-build-python-app'
     args: ['build', '-t', 'gcr.io/devops-lab-419615/adiyodi-assignment-3:$COMMIT_SHA', '.']
 
 # Push the container Image
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'docker-push-python-app'
     args: ['push', 'gcr.io/devops-lab-419615/adiyodi-assignment-3:$COMMIT_SHA']
 
 # Deploy the Docker container to Google Cloud Run
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: 'docker-deploy-to-cloud-run'
     entrypoint: 'sh'
     args: 
       - '-c'
