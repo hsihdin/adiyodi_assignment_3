@@ -17,7 +17,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+      - docker build -t adiyodi_assignment3_ecr_public .
       - docker tag adiyodi_assignment3_ecr_public:latest public.ecr.aws/i8q3x1g4/adiyodi_assignment3_ecr_public:latest
   post_build:
     commands:
