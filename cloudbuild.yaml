@@ -1,12 +1,12 @@
 #Build the container Image
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-east1-docker.pkg.dev/devops-lab-419615/adiyodi-assignment-3ssignment-3:$COMMIT_SHA', '.']
+    args: ['build', '-t', 'us-docker.pkg.dev/devops-lab-419615/adiyodi-assignment-3:$COMMIT_SHA', '.']
 
 #Push the container Image
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-east1-docker.pkg.dev/devops-lab-419615/adiyodi-assignment-3ssignment-3:$COMMIT_SHA']
+    args: ['push', 'us-docker.pkg.dev/devops-lab-419615/adiyodi-assignment-3:$COMMIT_SHA']
 
   # Deploy the Docker container to Google Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -15,7 +15,7 @@ steps:
       - '-c'
       - |
         gcloud run deploy python-app \
-          --image=us-east1-docker.pkg.dev/devops-lab-419615/adiyodi-assignment-3ssignment-3:$COMMIT_SHA \
+          --image=us-docker.pkg.dev/devops-lab-419615/adiyodi-assignment-3:$COMMIT_SHA \
           --platform=managed \
           --region=us-east-1 \
           --port=3000 \
@@ -23,6 +23,6 @@ steps:
  
  
 images:
-  - 'us-east1-docker.pkg.dev/devops-lab-419615/adiyodi-assignment-3ssignment-3:$COMMIT_SHA'
+  - 'us-docker.pkg.dev/devops-lab-419615/adiyodi-assignment-3:$COMMIT_SHA'
 options:
   defaultLogsBucketBehavior: 'REGIONAL_USER_OWNED_BUCKET'
